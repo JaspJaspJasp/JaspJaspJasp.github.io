@@ -1,0 +1,69 @@
+:root {
+  --bg-color: #faf9f6; /* Clean, minimalist white */
+  --text-color: #2c2a29;
+  --accent-color: #e8e4db;
+  --nav-hover: rgba(0, 0, 0, 0.04);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --btn-bg: transparent;
+}
+
+/* Dimmer shade matching the second reference image */
+html.dark {
+  --bg-color: #e6ddce; /* Warm, dim sepia tone */
+  --text-color: #3b3631;
+  --accent-color: #c9bcad;
+  --nav-hover: rgba(0, 0, 0, 0.06);
+  --border-color: rgba(0, 0, 0, 0.15);
+  --btn-bg: rgba(0, 0, 0, 0.04);
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none; 
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Charter", "Bitstream Charter", "Sitka Text", Cambria, serif;
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 6rem 4rem;
+  margin-left: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-placeholder {
+  background-color: var(--accent-color);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
