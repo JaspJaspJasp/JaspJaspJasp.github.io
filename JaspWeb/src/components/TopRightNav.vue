@@ -6,7 +6,7 @@ import ThemeToggle from './ThemeToggle.vue';
   <div class="top-nav">
     <ThemeToggle />
     <a href="https://github.com/JaspJaspJasp" target="_blank" class="social-btn">git</a>
-    <a href="#" target="_blank" class="social-btn">in</a>
+    <a href="https://www.linkedin.com/in/jasper-sng-36b079390" target="_blank" class="social-btn">in</a>
   </div>
 </template>
 

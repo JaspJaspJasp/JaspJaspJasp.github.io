@@ -1,69 +1,98 @@
 <template>
   <div class="view-container">
-    <img src="../assets/images/profile.jpg" alt="Background" class="full-bg" />
 
     <div class="content-overlay">
-      <h1>Sng Meng U Jasper</h1>
-      <p class="subtitle">
-        BSc Software Engineering (Class of 2029) at Singapore Management University.
-      </p>
-      
-      <p class="bio">
-        My work spans full-stack software development, automated data architectures, and quantitative finance. 
-        I am proficient in English, Chinese, and Hokkien, and outside of code, you can usually find me at the gym lifting or modifying Minecraft with Iris shaders.
-      </p>
+      <!-- Wrapping everything in one block ensures they share the exact same width -->
+      <div class="uniform-text-block">
+        <h1>Sng Meng U Jasper</h1>
+        
+        <h3 class="subtitle">
+          BSc Software Engineering (Class of 2029) at Singapore Management University.
+        </h3>
+        
+        <div class="bio-block">
+          <p>
+            Hello! I'm Jasper, and welcome to my portfolio page (That's me in the background)!
+          </p>
+          <p>
+            This page is a personal project made using Vue.js!
+          </p>
+          <p>
+            My engineering focus centers on software development and data engineering, with a strong interest in building reliable data systems and backend workflows. I actively work on projects utilizing Google Cloud Platform, while continuously expanding my cloud skillset through learning Microsoft Azure and getting started with AWS.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.full-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.6; 
-  pointer-events: none;
-}
+
 
 .view-container {
   width: 100%;
   min-height: 70vh;
   display: flex;
-  justify-content: flex-end; /* Pushes the text overlay into the right-side space */
+  justify-content: flex-end; 
   align-items: center; 
-  padding-right: 4rem; /* Keeps it from touching the very edge of your screen */
+  padding-right: 4rem; 
 }
 
 .content-overlay {
-  max-width: 500px; /* Keeps the paragraph neatly contained on the right */
-  text-align: right; /* Aligns the text cleanly against the right margin */
+  max-width: 550px; /* This dictates the width of the entire text box */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+}
+
+/* New wrapper to keep all elements strictly bound to the same edges */
+.uniform-text-block {
+  width: 100%;
 }
 
 h1 {
-  font-weight: 700; /* Much bolder */
-  text-shadow: 0 2px 5px rgba(255, 255, 255, 0.7); /* Adds contrast against the image */
+  font-family: "Charter", "Bitstream Charter", "Playfair Display", Georgia, serif;
+  color: snow; 
+  font-weight: 500; 
+  font-size: 3.2rem; 
+  line-height: 1.1;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
+  text-align: right; /* Removes the giant gaps in your name while keeping it aligned right */
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  font-weight: 600; /* Thicker text */
-  color: var(--text-color);
-  opacity: 1; /* Removed transparency for better readability */
-  margin-bottom: 2rem;
+  color: snow; /* Updated color */
+  text-align: justify; 
+  text-justify: inter-word; 
+  font-size: 1.1rem;
+  font-weight: 500; 
+  line-height: 1.8;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Darkened shadow slightly for snow text contrast */
   margin-top: 0;
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
 }
 
-.bio {
+.bio-block {
+  width: 100%; 
+}
+
+.bio-block p {
+  font-family: "Charter", "Bitstream Charter", "Playfair Display", Georgia, serif;
+  color: snow; /* Updated color */
+  text-align: justify; 
+  text-justify: inter-word; 
   font-size: 1.1rem;
-  font-weight: 500; /* Thicker text */
+  font-weight: 500; 
   line-height: 1.8;
-  color: var(--text-color);
-  opacity: 1; /* Removed transparency */
-  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Darkened shadow slightly for snow text contrast */
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.bio-block p:last-child {
+  margin-bottom: 0;
 }
 </style>

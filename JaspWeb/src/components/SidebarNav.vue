@@ -26,6 +26,7 @@
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
+  color: snow;
 }
 
 
@@ -45,7 +46,7 @@
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text-color);
+  color: snow;
   opacity: 0.9; /* Increased from 0.5 to be easily seen */
   font-weight: 600; /* Made the font much thicker */
   transition: all 0.3s ease;

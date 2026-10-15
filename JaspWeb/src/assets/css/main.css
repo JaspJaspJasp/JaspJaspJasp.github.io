@@ -54,7 +54,7 @@ h1 {
   margin-left: 200px;
   display: flex;
   justify-content: center;
-}
+} 
 
 .image-placeholder {
   background-color: var(--accent-color);
@@ -66,4 +66,8 @@ h1 {
   border-radius: 8px;
   font-size: 0.8rem;
   opacity: 0.8;
+}
+
+a, button, input, textarea, select, [role="button"] {
+  cursor: none !important;
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="view-container">
+
     <h1>Experiences & Teaching</h1>
     
     <div class="experience-block">
@@ -23,9 +24,24 @@
 </template>
 
 <style scoped>
+/* Background Image Styling */
+.full-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.6; 
+  pointer-events: none;
+}
+
+/* Existing Styles */
 .experience-block {
   margin-bottom: 2.5rem;
 }
+
 .meta {
   font-size: 0.9rem;
   opacity: 0.7;
