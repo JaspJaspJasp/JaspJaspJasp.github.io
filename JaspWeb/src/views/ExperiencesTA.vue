@@ -788,11 +788,15 @@ function switchTab(tabId) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Grey-ish Muted Glassmorphism Main Panel */
 .experience-panel {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   background: rgba(48, 52, 60, 0.86);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -802,6 +806,7 @@ function switchTab(tabId) {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.06);
   color: #f3f4f6;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 /* Header Area */
@@ -1483,40 +1488,77 @@ function switchTab(tabId) {
 
 /* Responsive Styles */
 @media (max-width: 820px) {
+  .view-container {
+    min-height: auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
   .experience-panel {
-    padding: 1.5rem 1.1rem;
-    border-radius: 16px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 1.35rem 1rem;
+    border-radius: 14px;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+    box-sizing: border-box;
   }
 
   .panel-header {
+    width: 100%;
+    max-width: 100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
     padding-bottom: 1.2rem;
     margin-bottom: 1.4rem;
+    box-sizing: border-box;
+  }
+
+  .title-area {
+    width: 100%;
+    max-width: 100%;
   }
 
   .page-title {
-    font-size: 2rem;
-    line-height: 1.18;
+    font-size: 1.65rem;
+    line-height: 1.2;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 100%;
   }
 
   .lead-text {
     font-size: 0.92rem;
     line-height: 1.5;
+    max-width: 100%;
   }
 
+  /* Prevent any form of vertical scrolling or scroll capture on tab bar */
   .tab-bar {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     gap: 0.35rem;
     padding: 0.35rem;
     overflow-x: auto;
+    overflow-y: hidden !important;
+    overscroll-behavior-y: none;
+    touch-action: pan-x;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     flex-wrap: nowrap;
   }
 
   .tab-bar::-webkit-scrollbar {
-    display: none;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .tab-btn {
@@ -1526,8 +1568,11 @@ function switchTab(tabId) {
   }
 
   .filter-bar {
+    width: 100%;
+    max-width: 100%;
     gap: 0.35rem;
     margin-bottom: 1.3rem;
+    box-sizing: border-box;
   }
 
   .filter-pill {
@@ -1535,39 +1580,66 @@ function switchTab(tabId) {
     padding: 0.28rem 0.7rem;
   }
 
+  .tab-content,
+  .card-stack,
+  .skills-layout,
+  .education-view {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+    box-sizing: border-box;
+  }
+
   .exp-card {
-    padding: 1.3rem 1.1rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 1.25rem 1rem;
     border-radius: 14px;
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .card-top {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    width: 100%;
   }
 
   .role-heading {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.35rem;
+    width: 100%;
   }
 
   .role-title {
     font-size: 1.25rem;
+    word-break: break-word;
   }
 
   .org-sub {
     font-size: 0.8rem;
     gap: 0.3rem;
+    flex-wrap: wrap;
   }
 
   .type-pill {
     align-self: flex-start;
+    max-width: 100%;
+    word-break: break-word;
   }
 
   .metric-ribbon {
     gap: 0.35rem;
     margin: 0.5rem 0 0.8rem 0;
+    flex-wrap: wrap;
   }
 
   .metric-chip {
@@ -1582,6 +1654,8 @@ function switchTab(tabId) {
   }
 
   .bullets-container {
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.9rem 0.8rem;
     gap: 0.7rem;
   }
@@ -1601,7 +1675,13 @@ function switchTab(tabId) {
   }
 
   .skill-category-box {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 1.4rem 1.1rem;
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .cat-header {
@@ -1615,20 +1695,25 @@ function switchTab(tabId) {
 
   .cat-title {
     font-size: 1.15rem;
+    word-break: break-word;
   }
 
   .skills-grid-row {
     grid-template-columns: 1fr;
     gap: 1.4rem;
+    width: 100%;
   }
 
   .spoken-lang-grid {
     grid-template-columns: 1fr;
     gap: 0.8rem;
+    width: 100%;
   }
 
   .lang-subcard {
     padding: 1rem 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .standard-chip {
@@ -1637,6 +1722,10 @@ function switchTab(tabId) {
   }
 
   .edu-hero-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 1.4rem 1.1rem;
   }
 
@@ -1644,14 +1733,17 @@ function switchTab(tabId) {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    width: 100%;
   }
 
   .institution-name {
     font-size: 1.4rem;
+    word-break: break-word;
   }
 
   .degree-title {
     font-size: 1.05rem;
+    word-break: break-word;
   }
 
   .edu-badges-col {
@@ -1664,16 +1756,17 @@ function switchTab(tabId) {
   .pillars-grid {
     grid-template-columns: 1fr;
     gap: 0.9rem;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .experience-panel {
-    padding: 1.2rem 0.85rem;
+    padding: 1.1rem 0.8rem;
   }
 
   .page-title {
-    font-size: 1.75rem;
+    font-size: 1.45rem;
   }
 
   .role-title {
@@ -1681,11 +1774,11 @@ function switchTab(tabId) {
   }
 
   .exp-card {
-    padding: 1.1rem 0.85rem;
+    padding: 1.1rem 0.8rem;
   }
 
   .bullets-container {
-    padding: 0.8rem 0.7rem;
+    padding: 0.8rem 0.65rem;
   }
 }
 </style>

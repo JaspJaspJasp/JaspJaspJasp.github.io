@@ -403,6 +403,14 @@ watch(() => route.path, () => {
     -webkit-backdrop-filter: blur(14px);
     z-index: 940;
     overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .mobile-drawer-backdrop::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   .mobile-drawer-content {
