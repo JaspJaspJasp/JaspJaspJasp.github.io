@@ -964,16 +964,138 @@ function closeModal() {
   transition: max-height 0.3s ease, opacity 0.2s ease;
 }
 
-@media (max-width: 900px) {
+/* Mobile & iPhone Breakpoints */
+@media (max-width: 820px) {
   .cert-panel {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.1rem;
+    border-radius: 16px;
   }
+
   .panel-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
   }
+
+  .page-title {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  .lead-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .provider-bar {
+    gap: 0.35rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .provider-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .provider-pill {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.78rem;
+    flex: none;
+  }
+
+  .section-block {
+    margin-bottom: 2.2rem;
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+  }
+
   .cert-grid {
     grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+
+  .cert-preview-box {
+    height: 185px;
+  }
+
+  .cert-details {
+    padding: 1.3rem 1.1rem;
+  }
+
+  .cert-heading {
+    font-size: 1.18rem;
+    line-height: 1.3;
+  }
+
+  .cert-summary {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .modal-backdrop {
+    padding: 1rem 0.6rem;
+  }
+
+  .modal-card {
+    padding: 1.2rem 1rem;
+    max-height: 94vh;
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .modal-close-btn {
+    top: 0.7rem;
+    right: 0.7rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .modal-title {
+    font-size: 1.15rem;
+  }
+
+  .modal-img-container {
+    padding: 0.5rem;
+  }
+
+  .modal-img {
+    max-height: 52vh;
+  }
+
+  .modal-footer {
+    font-size: 0.72rem;
+    word-break: break-all;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-panel {
+    padding: 1.2rem 0.85rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .cert-preview-box {
+    height: 165px;
+  }
+
+  .cert-details {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .cert-heading {
+    font-size: 1.1rem;
   }
 }
 </style>

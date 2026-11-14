@@ -1,10 +1,9 @@
 <template>
   <div class="view-container">
-
     <div class="content-overlay">
       <!-- Wrapping everything in one block ensures they share the exact same width -->
       <div class="uniform-text-block">
-        <h1>Sng Meng U Jasper</h1>
+        <h1 class="main-heading">Sng Meng U Jasper</h1>
         
         <h3 class="subtitle">
           BSc Software Engineering (Class of 2029) at Singapore Management University.
@@ -27,8 +26,6 @@
 </template>
 
 <style scoped>
-
-
 .view-container {
   width: 100%;
   min-height: 70vh;
@@ -36,21 +33,21 @@
   justify-content: flex-end; 
   align-items: center; 
   padding-right: 4rem; 
+  box-sizing: border-box;
 }
 
 .content-overlay {
-  max-width: 550px; /* This dictates the width of the entire text box */
+  max-width: 550px;
   display: flex;
   flex-direction: column;
   align-items: flex-end; 
 }
 
-/* New wrapper to keep all elements strictly bound to the same edges */
 .uniform-text-block {
   width: 100%;
 }
 
-h1 {
+.main-heading {
   font-family: "Charter", "Bitstream Charter", "Playfair Display", Georgia, serif;
   color: snow; 
   font-weight: 500; 
@@ -60,17 +57,17 @@ h1 {
   margin-bottom: 0.5rem;
   white-space: nowrap;
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
-  text-align: right; /* Removes the giant gaps in your name while keeping it aligned right */
+  text-align: right;
 }
 
 .subtitle {
-  color: snow; /* Updated color */
+  color: snow;
   text-align: justify; 
   text-justify: inter-word; 
   font-size: 1.1rem;
   font-weight: 500; 
   line-height: 1.8;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Darkened shadow slightly for snow text contrast */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -81,18 +78,71 @@ h1 {
 
 .bio-block p {
   font-family: "Charter", "Bitstream Charter", "Playfair Display", Georgia, serif;
-  color: snow; /* Updated color */
+  color: snow;
   text-align: justify; 
   text-justify: inter-word; 
   font-size: 1.1rem;
   font-weight: 500; 
   line-height: 1.8;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Darkened shadow slightly for snow text contrast */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
 .bio-block p:last-child {
   margin-bottom: 0;
+}
+
+/* Mobile & iPhone Breakpoints */
+@media (max-width: 820px) {
+  .view-container {
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    min-height: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  .content-overlay {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  .main-heading {
+    font-size: 2.3rem;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.18;
+    word-break: break-word;
+    margin-bottom: 0.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .bio-block p {
+    font-size: 0.96rem;
+    text-align: left;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-heading {
+    font-size: 1.95rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .bio-block p {
+    font-size: 0.92rem;
+  }
 }
 </style>

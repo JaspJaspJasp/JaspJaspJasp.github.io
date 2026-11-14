@@ -1482,35 +1482,210 @@ function switchTab(tabId) {
 }
 
 /* Responsive Styles */
-@media (max-width: 900px) {
+@media (max-width: 820px) {
   .experience-panel {
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.1rem;
+    border-radius: 16px;
   }
 
   .panel-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.4rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+    line-height: 1.18;
+  }
+
+  .lead-text {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .tab-bar {
+    gap: 0.35rem;
+    padding: 0.35rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+
+  .tab-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab-btn {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.82rem;
+    flex: none;
+  }
+
+  .filter-bar {
+    gap: 0.35rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .filter-pill {
+    font-size: 0.75rem;
+    padding: 0.28rem 0.7rem;
+  }
+
+  .exp-card {
+    padding: 1.3rem 1.1rem;
+    border-radius: 14px;
+  }
+
+  .card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .role-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .role-title {
+    font-size: 1.25rem;
+  }
+
+  .org-sub {
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+
+  .type-pill {
+    align-self: flex-start;
+  }
+
+  .metric-ribbon {
+    gap: 0.35rem;
+    margin: 0.5rem 0 0.8rem 0;
+  }
+
+  .metric-chip {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .summary-paragraph {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .bullets-container {
+    padding: 0.9rem 0.8rem;
+    gap: 0.7rem;
+  }
+
+  .bullet-row {
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .tech-tag {
+    font-size: 0.74rem;
+    padding: 0.2rem 0.55rem;
+  }
+
+  .skills-layout {
+    gap: 1.4rem;
+  }
+
+  .skill-category-box {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .cat-header {
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cat-icon {
+    font-size: 1.4rem;
+  }
+
+  .cat-title {
+    font-size: 1.15rem;
   }
 
   .skills-grid-row {
     grid-template-columns: 1fr;
+    gap: 1.4rem;
   }
 
   .spoken-lang-grid {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
 
-  .page-title {
-    font-size: 2.2rem;
+  .lang-subcard {
+    padding: 1rem 0.9rem;
+  }
+
+  .standard-chip {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .edu-hero-card {
+    padding: 1.4rem 1.1rem;
   }
 
   .edu-top {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .institution-name {
+    font-size: 1.4rem;
+  }
+
+  .degree-title {
+    font-size: 1.05rem;
   }
 
   .edu-badges-col {
     align-items: flex-start;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-panel {
+    padding: 1.2rem 0.85rem;
+  }
+
+  .page-title {
+    font-size: 1.75rem;
+  }
+
+  .role-title {
+    font-size: 1.15rem;
+  }
+
+  .exp-card {
+    padding: 1.1rem 0.85rem;
+  }
+
+  .bullets-container {
+    padding: 0.8rem 0.7rem;
   }
 }
 </style>

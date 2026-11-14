@@ -1,22 +1,5 @@
 <script setup>
-import { ref } from 'vue';
 import ThemeToggle from './ThemeToggle.vue';
-
-const copied = ref(false);
-
-const handleEmailClick = async () => {
-  try {
-    await navigator.clipboard.writeText('jaspersngwork@gmail.com');
-    copied.value = true;
-    setTimeout(() => {
-      copied.value = false;
-    }, 3000);
-  } catch (err) {
-    console.error('Failed to copy email:', err);
-  }
-  // Also attempt system mailto
-  window.location.href = 'mailto:jaspersngwork@gmail.com';
-};
 </script>
 
 <template>
@@ -27,7 +10,7 @@ const handleEmailClick = async () => {
       href="https://github.com/JaspJaspJasp"
       target="_blank"
       rel="noopener noreferrer"
-      class="social-btn"
+      class="social-btn desktop-only"
       title="GitHub Profile (JaspJaspJasp)"
       aria-label="GitHub"
     >
@@ -40,7 +23,7 @@ const handleEmailClick = async () => {
       href="https://www.linkedin.com/in/jasper-sng-36b079390"
       target="_blank"
       rel="noopener noreferrer"
-      class="social-btn"
+      class="social-btn desktop-only"
       title="LinkedIn Profile"
       aria-label="LinkedIn"
     >
@@ -50,26 +33,6 @@ const handleEmailClick = async () => {
         <circle cx="4" cy="4" r="2"></circle>
       </svg>
     </a>
-
-    <!-- Email Action Button -->
-    <button
-      class="social-btn email-btn"
-      @click="handleEmailClick"
-      title="Send email or copy jaspersngwork@gmail.com"
-      aria-label="Email"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
-        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-      </svg>
-    </button>
-
-    <!-- Floating Feedback Toast -->
-    <transition name="toast-fade">
-      <div v-if="copied" class="toast-popup">
-        Email copied to clipboard! (jaspersngwork@gmail.com)
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -81,7 +44,7 @@ const handleEmailClick = async () => {
   display: flex;
   gap: 0.75rem;
   align-items: center;
-  z-index: 100;
+  z-index: 960;
 }
 
 .social-btn {
@@ -109,31 +72,21 @@ const handleEmailClick = async () => {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-.toast-popup {
-  position: absolute;
-  top: 50px;
-  right: 0;
-  white-space: nowrap;
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #86efac;
-  font-size: 0.78rem;
-  font-weight: 500;
-  padding: 0.45rem 0.9rem;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  pointer-events: none;
-}
+/* Mobile & iPhone Breakpoints */
+@media (max-width: 820px) {
+  .top-nav {
+    top: 11px;
+    right: 4.4rem;
+    gap: 0.45rem;
+  }
 
-.toast-fade-enter-active,
-.toast-fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
+  .desktop-only {
+    display: none !important;
+  }
 
-.toast-fade-enter-from,
-.toast-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-5px);
+  .social-btn {
+    width: 36px;
+    height: 36px;
+  }
 }
 </style>

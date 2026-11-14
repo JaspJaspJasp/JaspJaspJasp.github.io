@@ -57,6 +57,7 @@
   justify-content: flex-end; 
   align-items: center; 
   padding-right: 4rem; 
+  box-sizing: border-box;
 }
 
 .content-overlay {
@@ -165,17 +166,74 @@
   line-height: 1.4;
 }
 
-@media (max-width: 900px) {
+/* Mobile & iPhone Breakpoints */
+@media (max-width: 820px) {
   .view-container {
     justify-content: center;
+    align-items: center;
     padding-right: 0;
+    min-height: auto;
+    padding: 1rem 0.5rem;
   }
+
+  .content-overlay {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
   .goals-heading {
     text-align: left;
-    font-size: 2.4rem;
+    font-size: 2.3rem;
+    line-height: 1.18;
+    white-space: normal;
+    word-break: break-word;
   }
-  .content-overlay {
+
+  .subtitle {
+    font-size: 1rem;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .bio-block p {
+    font-size: 0.96rem;
+    text-align: left;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+  }
+
+  .focus-grid {
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+  }
+
+  .focus-card {
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .goals-heading {
+    font-size: 1.95rem;
+  }
+
+  .focus-card {
     align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .focus-icon {
+    font-size: 1.2rem;
+    margin-top: 0.1rem;
+  }
+
+  .focus-title {
+    font-size: 0.94rem;
+  }
+
+  .focus-desc {
+    font-size: 0.78rem;
   }
 }
 </style>

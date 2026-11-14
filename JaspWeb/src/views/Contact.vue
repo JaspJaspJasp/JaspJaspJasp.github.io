@@ -14,11 +14,6 @@ const copyEmail = async () => {
     console.error('Failed to copy email:', err);
   }
 };
-
-const handleSendEmail = () => {
-  copyEmail();
-  window.location.href = 'mailto:jaspersngwork@gmail.com';
-};
 </script>
 
 <template>
@@ -35,14 +30,11 @@ const handleSendEmail = () => {
             Whether you have an engineering role, technical inquiry, or want to discuss cloud pipelines and systems, feel free to reach out. I will get back to you promptly!
           </p>
           
-          <!-- Aesthetic contact fields -->
+          <!-- Contact Details Table -->
           <div class="contact-details">
-            <div class="contact-item" @click="copyEmail" title="Click to copy email">
-              <span class="label">Email (Click to Copy)</span>
-              <span class="value link">
-                jaspersngwork@gmail.com
-                <span v-if="copied" class="copied-badge">Copied! ✓</span>
-              </span>
+            <div class="contact-item">
+              <span class="label">Email</span>
+              <span class="value">jaspersngwork@gmail.com</span>
             </div>
             <div class="contact-item">
               <span class="label">Instagram</span>
@@ -54,22 +46,34 @@ const handleSendEmail = () => {
             </div>
           </div>
           
-          <!-- Action Buttons (Guaranteed to work across all devices) -->
-          <div class="action-btn-container">
-            <button class="email-btn-primary" @click="handleSendEmail">
-              Send an Email ↗
-            </button>
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=jaspersngwork@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="email-link-secondary"
-            >
-              Open in Gmail ↗
-            </a>
-          </div>
-          <div v-if="copied" class="toast-feedback">
-            Email copied to clipboard (jaspersngwork@gmail.com)
+          <!-- Direct Compose & Single Copy Action -->
+          <div class="compose-section">
+            <span class="compose-label">Open in:</span>
+            <div class="compose-links">
+              <a
+                href="https://outlook.live.com/mail/0/deeplink/compose?to=jaspersngwork@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="compose-link"
+                title="Compose new email in Outlook Web"
+              >Outlook ↗</a>
+              <span class="pipe-sep">|</span>
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=jaspersngwork@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="compose-link"
+                title="Compose new email in Gmail"
+              >Gmail ↗</a>
+              <span class="pipe-sep">|</span>
+              <button
+                class="compose-link copy-action-btn"
+                @click="copyEmail"
+                :title="copied ? 'Copied!' : 'Copy email address to clipboard'"
+              >
+                <span :class="{ 'copied-text': copied }">{{ copied ? 'Copied! ✓' : 'Copy Address' }}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -85,10 +89,11 @@ const handleSendEmail = () => {
   justify-content: flex-end; 
   align-items: center; 
   padding-right: 4rem; 
+  box-sizing: border-box;
 }
 
 .content-overlay {
-  max-width: 550px; 
+  max-width: 580px; 
   display: flex;
   flex-direction: column;
   align-items: flex-end; 
@@ -144,7 +149,6 @@ const handleSendEmail = () => {
   align-items: baseline;
   border-bottom: 1px solid rgba(255, 250, 250, 0.2);
   padding-bottom: 0.5rem;
-  cursor: pointer;
 }
 
 .contact-item .label {
@@ -161,83 +165,157 @@ const handleSendEmail = () => {
   color: snow;
   font-size: 1.15rem;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); 
-  position: relative;
 }
 
 .contact-item .link {
   text-decoration: none;
-  transition: opacity 0.2s ease;
+  color: snow;
+  transition: opacity 0.2s ease, color 0.2s ease;
 }
 
-.contact-item:hover .link {
-  opacity: 0.85;
-  color: #93c5fd;
+.contact-item .link:hover {
+  opacity: 0.9;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.copied-badge {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.7rem;
-  background: rgba(34, 197, 94, 0.25);
-  border: 1px solid rgba(34, 197, 94, 0.5);
-  color: #4ade80;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  margin-left: 0.5rem;
-}
-
-/* Action button alignment */
-.action-btn-container {
+/* Compose Options Styling (Clean Inline Text Links) */
+.compose-section {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 1.2rem;
-  margin-top: 1rem;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
 }
 
-.email-btn-primary {
-  font-family: "Charter", "Bitstream Charter", "Playfair Display", Georgia, serif;
-  display: inline-block;
-  color: snow;
-  font-size: 1.45rem;
+.compose-label {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #cbd5e1;
+  opacity: 0.8;
+}
+
+.compose-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.compose-link {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.88rem;
   font-weight: 500;
+  color: snow;
+  text-decoration: none;
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(255, 250, 250, 0.4);
-  padding: 0 0 4px 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.2s ease;
-  cursor: pointer;
-}
-
-.email-btn-primary:hover {
-  opacity: 0.9;
-  color: #93c5fd;
-  transform: translateX(-4px); 
-}
-
-.email-link-secondary {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 0.4rem 0.8rem;
-  border-radius: 8px;
+  padding: 0.15rem 0.25rem;
   transition: all 0.2s ease;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-.email-link-secondary:hover {
-  background: rgba(255, 255, 255, 0.18);
+.compose-link:visited,
+.compose-link:active {
+  color: snow;
+}
+
+.compose-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.pipe-sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+.copy-action-btn {
+  color: snow;
+  font-weight: 500;
+}
+
+.copy-action-btn:hover {
   color: #ffffff;
 }
 
-.toast-feedback {
-  margin-top: 0.8rem;
-  font-size: 0.78rem;
-  color: #86efac;
-  text-align: right;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+.copied-text {
+  color: #86efac !important;
+  font-weight: 600;
+}
+
+/* Mobile & iPhone Breakpoints */
+@media (max-width: 820px) {
+  .view-container {
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    min-height: auto;
+    padding: 1rem 0.5rem;
+  }
+
+  .content-overlay {
+    max-width: 100%;
+    align-items: flex-start;
+  }
+
+  .centered-heading {
+    font-size: 2.3rem;
+    white-space: normal;
+    text-align: left;
+    line-height: 1.18;
+    margin-bottom: 1rem;
+    word-break: break-word;
+  }
+
+  .bio-block p {
+    font-size: 0.96rem;
+    text-align: left;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+
+  .contact-item .value {
+    font-size: 1rem;
+    word-break: break-all;
+  }
+
+  .compose-section {
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+  }
+
+  .compose-links {
+    gap: 0.45rem;
+  }
+
+  .compose-link {
+    font-size: 0.85rem;
+    padding: 0.15rem 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centered-heading {
+    font-size: 1.95rem;
+  }
+
+  .compose-links {
+    gap: 0.4rem;
+  }
 }
 </style>
